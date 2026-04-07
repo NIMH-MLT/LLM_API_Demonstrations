@@ -2,13 +2,13 @@ from openai import OpenAI
 from ollama import chat
 from ollama import ChatResponse
 
-#api='ollama'
-api='openAI'
+api='ollama'
+#api='openAI'
 
 # use for debugging only, very small model that can be installed with "ollama pull tinyllama"
-model='tinyllama'
+#model='tinyllama'
 # use for testing, should still run pretty quickly, and can be installed with "ollama pull qwen3.5:9b"
-#model='qwen3.5:9b'
+model='qwen3.5:9b'
 
 ## initialization
 
@@ -54,7 +54,10 @@ if api == 'openAI':
         temperature=0.7,
         )
 elif api == 'ollama':
-    model_output = chat(model=model, messages=messages)
+    model_output = chat(
+        model=model,
+        messages=messages,
+        )
 else:
     assert False
     
