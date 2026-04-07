@@ -1,2 +1,5 @@
 # LLM_API_Demonstrations
-Demonstrations of how to use LLMs via API
+
+This repository contains demonstration functions for carrying various tasks with LLMs using the API, against different backends (Ollama, with either native or OpenAI APIs, and Hugging Face)
+
+
