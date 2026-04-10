@@ -2,13 +2,20 @@ from openai import OpenAI
 from ollama import chat
 from ollama import ChatResponse
 
+## Ollama provides two APIs, one their own and a clone of the OpenAI one.
+## This demo is written so that as much code as possible is shared between them, with if statements for variations.
+## It starts with a single turn of conversation, so that the function calls are clear.
+## It then proceeds to a chatbot-like loop, to show how that is implemented:
+## - at every turn, the whole conversation thus far is sent to the LLM
+## - at the end of the turn, the new utterances have to be added into the conversation history
+
 api='ollama'
 #api='openAI'
 
 # use for debugging only, very small model that can be installed with "ollama pull tinyllama"
-#model='tinyllama'
+model='tinyllama'
 # use for testing, should still run pretty quickly, and can be installed with "ollama pull qwen3.5:9b"
-model='qwen3.5:9b'
+#model='qwen3.5:9b'
 
 ## initialization
 
@@ -35,11 +42,12 @@ messages = []
 if api == 'openAI':
     messages.append({'role': 'system', 'content': 'You are a concise helpful assistant.'})
 elif api == 'ollama':
-    # no need
+    # doesn't seem to have this
     pass
 else:
     assert False
 
+# start with a sample question, 
 user_input = 'Why is the sky blue?'
 messages.append({'role': 'user', 'content': user_input })
 print('user says: %s' % user_input)
