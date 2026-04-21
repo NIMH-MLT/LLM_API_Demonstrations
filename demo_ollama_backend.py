@@ -38,12 +38,14 @@ else:
 
 messages = []
 
-# initialization message
+# initialization message - the "system prompt"
+system_prompt = 'You are a helpful assistant.'
+#system_prompt = 'You are a very unhelpful assistant.'
+
 if api == 'openAI':
-    messages.append({'role': 'system', 'content': 'You are a concise helpful assistant.'})
+    messages.append({'role': 'system', 'content': system_prompt})
 elif api == 'ollama':
-    # doesn't seem to have this
-    pass
+    messages.append({'role': 'system', 'content': system_prompt})
 else:
     assert False
 
