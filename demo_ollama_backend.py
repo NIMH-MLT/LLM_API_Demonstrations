@@ -81,6 +81,7 @@ else:
     assert False
     
 print('assistant says: %s\n' % response)
+messages.append({'role': 'assistant', 'content': response})
 
 ## now go into a loop of prompt/response, always adding to the conversation history
 ## (exit by typing nothing, 'quit', or 'exit')
