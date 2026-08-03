@@ -1,25 +1,76 @@
 # LLM_API_Demonstrations
 
-This repository contains demonstration functions for carrying various tasks with LLMs using the API, against different backends (Ollama, with either native or OpenAI APIs, and Hugging Face)
+This repository contains demonstration functions for carrying various tasks with LLMs using the API, against different backends (Ollama, with either native or OpenAI APIs, and HuggingFace)
 
+## setup conda environment for HuggingFace
 
-## demo_huggingface_local_model.py
+This is needed for running every HuggingFace demo. If you do not yet have miniconda set up, follow the instructions in
 
-This demo loads a model from the local NIMH model repo on biowulf and runs inference locally via the Hugging Face `transformers` library. The conversation pattern is identical to `demo_ollama_backend.py`; only the inference call changes.
+https://hpc.nih.gov/docs/diy_installation/conda.html
 
-Create a fresh conda environment and activate it:
+You can also use other software for creating virtual environments. If using conda, these are the commands to create a fresh environment and activate it
 
     conda create --name demo_huggingface python=3.12
 	conda activate demo_huggingface
 
-and install the dependencies:
+Once you have an environment active, you need to install the following packages
 
     module load CUDA/12.8.1
 	pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
 	pip install transformers accelerate pillow safetensors
 
 (CUDA 12.8.1 is the latest available, the explicit `--index-url` pins torch to a CUDA 12.6 build, which is the closest pytorch match)
+If all finishes without errors, you are done with setting up the enviroment.
 
+    
+## verify that everything works
+
+We can verify that this demo (or any other code you write) works by setting up an interactive session with a GPU
+    
+    sinteractive --mem=32g --gres=gpu:a100:1
+
+and then activating the environment
+
+    conda activate demo_huggingface
+
+and running the interactive chat demo
+
+    python demo_biowulf_huggingface_chat.py 
+
+This loads an LLM from the NIMH repository at
+
+    /data/NIMH_ReadOnly/HF_models/
+
+and sets up a chat. The first question is prompted for you, namely
+
+    "Why is the sky blue?"
+
+and the LLM will provide a response. Then you will get another prompt
+
+    "user says:"
+
+and you can type further, or simply press enter at an empty prompt to stop writing.
+    
+ 
+## use the model in batch mode
+
+Now that we checked that everything works for the chat, let's try running a script that can do an arbitrary task using the LLM. This code just takes a prompt, and outputs a response
+
+    python demo_biowulf_huggingface_script.py
+
+In this case, the prompt is still "Why is the sky blue?", and you will get a response to that with no constraints on length. You can exit the interactive session now.
+
+
+## run model from biowulf command line
+
+Finally, let's run the script from the biowulf command line, using sbatch.
+
+
+
+will activate the environment for 
+
+    
+    
 ## (NOT UPDATED FOR BIOWULF YET)
 ## demo_ollama_backend.py
 
