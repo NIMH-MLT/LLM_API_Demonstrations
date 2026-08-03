@@ -75,7 +75,7 @@ with the path to your copy of this file. After you do that, activate the environ
 
 and submit this swarm command line
 
-    swarm --module CUDA/12.8.1 --gb-per-process 16 --time 04:00:00  --partition gpu --gres=gpu:a100:1 --qos=gpunimh2025.1 demo.submit
+    swarm --module CUDA/12.8.1 --gb-per-process 16 --noht --time 04:00:00  --partition gpu --gres=gpu:a100:1 --qos=gpunimh2025.1 demo.submit
 
 noting the job ID number submitted. You can use
 
