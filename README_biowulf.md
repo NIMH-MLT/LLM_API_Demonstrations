@@ -63,11 +63,32 @@ In this case, the prompt is still "Why is the sky blue?", and you will get a res
 
 ## run model from biowulf command line
 
-Finally, let's run the script from the biowulf command line, using sbatch.
+Finally, let's run the script from the biowulf command line, using swarm.
 
+The demo includes a sample demo.submit file, which you should edit to replace
 
+    /data/pereiraf2/LLM_API_Demonstrations/demo_biowulf_huggingface_script.py
 
-will activate the environment for 
+with the path to your copy of this file. After you do that, activate the environment (all jobs will inherit this)
+
+    conda activate demo_huggingface
+
+and submit this swarm command line
+
+    swarm --module CUDA/12.8.1 --gb-per-process 16 --time 04:00:00  --partition gpu --gres=gpu:a100:1 --qos=gpunimh2025.1 demo.submit
+
+noting the job ID number submitted. You can use
+
+    jobhist <job ID>
+
+to keep track, and see if COMPLETED or FAILED. Once it finishes, there should be a file
+
+    demo_script_output.txt
+
+with the output of running for this prompt. It will also output
+
+    swarm_<job ID>.o (commands executed)
+    swarm_<job ID>.e (any warnings or errors, if the job failed)
 
     
     

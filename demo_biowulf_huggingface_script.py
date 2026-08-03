@@ -47,13 +47,11 @@ inputs = tokenizer.apply_chat_template(
 ).to(model.device)
 input_len = inputs['input_ids'].shape[-1]
 
-## this output can be constrained
-## - adding max_new_tokens=# would limit to a certain number of otkens
-
 with torch.no_grad():
     output_ids = model.generate(
         **inputs,
         do_sample=True,
+        max_new_tokens=1000000,
         temperature=0.7,
     )
 
