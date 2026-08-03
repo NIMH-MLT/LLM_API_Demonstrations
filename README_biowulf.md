@@ -90,6 +90,11 @@ with the output of running for this prompt. It will also output
     swarm_<job ID>.o (commands executed)
     swarm_<job ID>.e (any warnings or errors, if the job failed)
 
+If you want those files to go somewhere else, add the option
+
+    --logdir <somewhere else>
+
+to the command line.
     
     
 ## (NOT UPDATED FOR BIOWULF YET)
