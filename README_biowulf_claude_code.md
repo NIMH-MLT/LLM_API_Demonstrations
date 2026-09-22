@@ -32,19 +32,16 @@ which can be scheduled in an interactive session almost instantly.
 
 Here are the GPU compatibility requirements with models you may want to use
 
-|model            |v100 |v100x|a100 |
+|model (parameters)|v100 |v100x|a100 |
 |-----------------|-----|-----|-----|
+|qwen3.5:9b       |  x  |  x  |  x  |
 |qwen3-coder:30b  |     |  x  |  x  |     
-|qwen3.5:9b       |     |  x  |  x  |
-|qwen3.6:35b      |     |  x  |  x  |
 |qwen3.8 (27b)    |     |  x  |  x  |
-|gemma4:12b-it-qat|     |  x  |  x  |
+|gemma4:12b-it-qat|  x  |  x  |  x  |
 |gemma4:26b-a4b-it-qat| |  x  |  x  |
 |gpt-oss:20b      |     |  x  |  x  |
 |gpt-oss:120b     |     |     |  x  |
-|llama3.3:70b     |     |     |  x  |
 
-        
 ## set it up
 
 Run the following commands to set up CUDA (NVIDIA's software to access GPU cards), and start the Ollama back-end
@@ -70,6 +67,19 @@ and
 
 will show you all the models available. If no models show, something is wrong. If the model you want is not in there, it can be installed. Either way, please let us know!
 
+If, at any point, you get the error message
+
+    Error: could not connect to ollama server, run 'ollama serve' to start it
+
+then just redo
+
+    `ollama_start | grep export`
+
+and try
+
+    ollama ls
+
+again.
     
 ## run a model
 
