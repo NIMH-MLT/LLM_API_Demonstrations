@@ -20,27 +20,26 @@ If you are interested in having it work on code in github, you can also clone th
     
 ## start an interactive session with access to a GPU
 
-For this demo, we will use a medium GPU (v100x, 32GB of RAM)
+For this demo, we will use a large GPU (A100, 80GB of RAM)
+
+     sinteractive --mem=32g --gres=gpu:a100:1
+
+Models are sized in terms of billions of parameters, and this should handle every model we have in the Ollama back-end. For smaller models (up to ~30B parameters), it's possible to use a medium GPU (v100x, 32GB of RAM)
 
     sinteractive --mem=32g --gres=gpu:v100x:1
 
-which can schedule quickly, and run smaller models. Models are sized in terms of billions of parameters, and this should handle anything up to ~20B parameters. For larger models, or faster performance, the only option is the larger GPUs (A100, 80GB of RAM)
-
-    sinteractive --mem=32g --gres=gpu:a100:1
-
-but those are heavily subscribed, at least until the next GPU upgrade.
-    
+which can be scheduled in an interactive session almost instantly.
     
 ## set it up
 
 Run the following commands to set up CUDA (NVIDIA's software to access GPU cards), and start the Ollama back-end
 
     module load CUDA/12.8.2
-    export OLLAMA_MODELS=/data/NIMH_ReadOnly/Ollama_models
     module load ollama
+    export OLLAMA_MODELS=/data/NIMH_ReadOnly/Ollama_models
     ollama_start
 
-The last line starts the back-end, and gives you a line that looks like this (the :<number> might vary)
+The last line starts the back-end, and gives you a line that looks like this (the :<number> might vary, so replace it in all the commands below where it appears)
 
     export OLLAMA_HOST=localhost:22919
 
@@ -84,11 +83,12 @@ Set a few more environment variables
     export ANTHROPIC_BASE_URL=$OLLAMA_HOST
     export ANTHROPIC_API_KEY=""
     export OLLAMA_CONTEXT_LENGTH=256000
-    
-and then go into the folder you set aside for Claude Code, and start it
+    export CLAUDE_CODE_MAX_CONTEXT_TOKENS=$OLLAMA_CONTEXT_LENGTH
+        
+and then go into the folder you set aside for Claude Code, and start it with a coding model
 
     cd Test_CC
-    claude --model qwen3.5:9b
+    claude --model qwen3-coder:30b
 
 It will ask you if you trust the folder, so use the cursor keys to select yes and enter.
 
