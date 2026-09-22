@@ -29,7 +29,22 @@ Models are sized in terms of billions of parameters, and this should handle ever
     sinteractive --mem=32g --gres=gpu:v100x:1
 
 which can be scheduled in an interactive session almost instantly.
-    
+
+Here are the GPU compatibility requirements with models you may want to use
+
+|model            |v100 |v100x|a100 |
+|-----------------|-----|-----|-----|
+|qwen3-coder:30b  |     |  x  |  x  |     
+|qwen3.5:9b       |     |  x  |  x  |
+|qwen3.6:35b      |     |  x  |  x  |
+|qwen3.8 (27b)    |     |  x  |  x  |
+|gemma4:12b-it-qat|     |  x  |  x  |
+|gemma4:26b-a4b-it-qat| |  x  |  x  |
+|gpt-oss:20b      |     |  x  |  x  |
+|gpt-oss:120b     |     |     |  x  |
+|llama3.3:70b     |     |     |  x  |
+
+        
 ## set it up
 
 Run the following commands to set up CUDA (NVIDIA's software to access GPU cards), and start the Ollama back-end
@@ -37,18 +52,14 @@ Run the following commands to set up CUDA (NVIDIA's software to access GPU cards
     module load CUDA/12.8.2
     module load ollama
     export OLLAMA_MODELS=/data/NIMH_ReadOnly/Ollama_models
-    ollama_start
-
-The last line starts the back-end, and gives you a line that looks like this (the :<number> might vary, so replace it in all the commands below where it appears)
-
-    export OLLAMA_HOST=localhost:22919
-
-Paste that into the command line, and now check that it all works
+    `ollama_start | grep export`
+    
+Paste that into the command line (notice the backticks in the last line), and now check that it all works
 
     echo $OLLAMA_MODELS
     echo $OLLAMA_HOST
 
-should give you
+should give you (the number in localhost:<number> will vary)
 
     /data/NIMH_ReadOnly/Ollama_models
     localhost:22919
@@ -57,7 +68,7 @@ and
 
     ollama ls
 
-will show you all the models available. If the one you want is not in there, let us know.
+will show you all the models available. If no models show, something is wrong. If the model you want is not in there, it can be installed. Either way, please let us know!
 
     
 ## run a model
