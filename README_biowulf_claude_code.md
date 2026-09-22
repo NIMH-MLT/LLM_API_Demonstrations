@@ -20,12 +20,16 @@ If you are interested in having it work on code in github, you can also clone th
     
 ## start an interactive session with access to a GPU
 
-For this demo, we will use a medium-size GPU (V100x, 32GB of RAM)
+For this demo, we will use a medium GPU (v100x, 32GB of RAM)
 
-    sinteractive --mem=32g --gres=gpu:v100x:1 --qos=gpunimh2025.1 
+    sinteractive --mem=32g --gres=gpu:v100x:1
 
-which can schedule quickly, and run smaller models, and we will cover other models later.
+which can schedule quickly, and run smaller models. Models are sized in terms of billions of parameters, and this should handle anything up to ~20B parameters. For larger models, or faster performance, the only option is the larger GPUs (A100, 80GB of RAM)
 
+    sinteractive --mem=32g --gres=gpu:a100:1
+
+but those are heavily subscribed, at least until the next GPU upgrade.
+    
     
 ## set it up
 
