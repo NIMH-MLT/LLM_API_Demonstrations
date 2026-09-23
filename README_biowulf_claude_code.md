@@ -104,7 +104,6 @@ Set a few more environment variables
     export ANTHROPIC_AUTH_TOKEN=ollama
     export ANTHROPIC_BASE_URL=$OLLAMA_HOST
     export ANTHROPIC_API_KEY=""
-    export CLAUDE_CODE_MAX_CONTEXT_TOKENS=$OLLAMA_CONTEXT_LENGTH
         
 and then go into the folder you set aside for Claude Code, and start it with a coding model
 
