@@ -30,7 +30,7 @@ Models are sized in terms of billions of parameters, and this should handle ever
 
 which can be scheduled in an interactive session almost instantly.
 
-Here are the GPU compatibility requirements with models you may want to use
+Models served in the Ollama back-end are usually named `<model>:<#parameters>-<features>`. In general, you should use the smallest GPU that the model will run in, with the following table showing which models will run in which GPUs available now.
 
 |model (parameters)|v100 |v100x|a100 |
 |-----------------|-----|-----|-----|
