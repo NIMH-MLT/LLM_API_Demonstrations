@@ -30,17 +30,17 @@ Models are sized in terms of billions of parameters, and this should handle ever
 
 which can be scheduled in an interactive session almost instantly.
 
-Models served in the Ollama back-end are usually named `<model>:<#parameters>-<features>`. In general, you should use the smallest GPU that the model will run in, with the following table showing which models will run in which GPUs available now.
+Models served in the Ollama back-end are usually named `<model>:<#parameters>-<features>`. In general, you should use the smallest GPU that the model will run in, with the following table showing which models will run in which GPUs available now (v100:16GB, v100x:32GB, A100:80GB).
 
 |model (parameters)|context length| v100 |v100x|a100 |
 |-----------------|-----|-----|-----|-----|
-|qwen3.5:9b       |     |  x  |  x  |  x  |
-|qwen3-coder:30b  |     |     |  x  |  x  |     
-|qwen3.8 (27b)    |     |     |  x  |  x  |
-|gemma4:12b-it-qat|     |  x  |  x  |  x  |
-|gemma4:26b-a4b-it-qat| |     |  x  |  x  |
-|gpt-oss:20b      |     |     |  x  |  x  |
-|gpt-oss:120b     |     |     |     |  x  |
+|qwen3.5:9b       | 256K |  x  |  x  |  x  |
+|qwen3-coder:30b  | 256K |     |  x  |  x  |     
+|qwen3.8 (27b)    | 256K |     |  x  |  x  |
+|gemma4:12b-it-qat| 256K |  x  |  x  |  x  |
+|gemma4:26b-a4b-it-qat| 256K |     |  x  |  x  |
+|gpt-oss:20b      | 128K |     |  x  |  x  |
+|gpt-oss:120b     | 128K |     |     |  x  |
 
 ## set it up
 
