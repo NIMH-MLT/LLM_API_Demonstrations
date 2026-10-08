@@ -114,9 +114,9 @@ and it will do. At that point, you can ask it to change the function, write it t
 
 Models come in a variety of sizes, quantified by #parameters. In general, the more parameters, the higher the capability, and the slower the model runs. For the purpose of running Claude Code, `qwen3-coder:30b` is a good compromise. For other purposes, the best approach is to find a model that works well, and then work downwards in number of parameters tofind one that still does the task. The Ollama back-end makes it easy to see what that number is for a given model, as the models are usually named `<model>:<#parameters>-<features>`. 
 
-The other consideration is which GPU to run on, which depends on the RAM capacity needed (the bigger the model, the more RAM is needed), and the speed. The short answer is: l40, which is a good trade-off and can fit almost any relevant models. To go further, this table shows which models fit on each Biowulf GPU type
+The other consideration is which GPU to run on, which depends on the RAM capacity needed (the bigger the model, the more RAM is needed), and the speed. The short answer is: l40, which is a good trade-off and can fit almost any relevant models. To go further, this table shows which models fit on each Biowulf GPU type:
 
-|GPU <BR> model (parameters)|    | v100 |v100x| l40 | a100|
+|GPU <BR> model (parameters)| context | v100 |v100x| l40 | a100|
 |---------------------|----- |-----|-----|-----|-----|
 |qwen3.5:9b           | 256K |  x  |  x  |  x  |  x  |
 |qwen3-coder:30b      | 256K |     |  x  |  x  |  x  |
@@ -125,24 +125,19 @@ The other consideration is which GPU to run on, which depends on the RAM capacit
 |gemma4:26b-a4b-it-qat| 256K |     |  x  |  x  |  x  |
 |gpt-oss:20b          | 128K |     |  x  |  x  |  x  |
 |gpt-oss:120b         | 128K |     |     |  x  |  x  |
+|mistral-medium-3.5   | 256K |     |     |     |  x  |
+
+This table shows how much memory each model has, and how fast they have
     
-    
+| GPU  | memory | speed |
+|------|--------|-------|
+|v100  | 16GB   | 1     |
+|v100x | 32GB   | 1     |
+|a100  | 80GB   | 2     |
+|l40   | 48GB   | 3     |
+|h200  | 141GB  | 4     |
 
-    For smaller models (up to ~30B parameters), it's possible to use a smaller GPU (v100x, 32GB of RAM)
-
-    sinteractive --mem=32g --gres=gpu:v100x:1
-
-which can be scheduled in an interactive session almost instantly.
-
-Which GPU to use depends on whether
-    
-Models served in the Ollama back-end are usually named
-
-
-
-     In general, you should use the smallest GPU that the model will run in, with the following table showing which models will run in which GPUs available now (v100:16GB, v100x:32GB, A100:80GB).
-
-
+The H200 is the most capable GPU, but also the least likely to be available for interactive use. In general, you should use the smallest GPU that the model will run in, and where the speed is acceptable, for ease of scheduling.
 
 ## other resources
 
