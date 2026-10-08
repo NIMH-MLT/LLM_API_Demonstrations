@@ -1,8 +1,14 @@
 # Running Claude Code with an open-weight model on Biowulf
 
-These instructions are for running Claude Code (an agentic coding harness) on an open-weight LLM (not from Anthropic) on Biowulf GPUs, served by the Ollama back-end. The primary reason for doing this would not being able to get access to Claude Code using Anthropic's LLMs, because of subscription price, or purchasing constraints.
-
 For questions about this guide, please contact the NIMH Machine Learning Core (NIMHMLC@mail.nih.gov).
+    
+## what is this, and what is it for?
+
+Mainly, to allow you to use the Claude Code environment (an agentic coding harness) when you cannot buy a subscription for it from Anthropic, due to cost or purchasing constraints.
+
+The Claude Code access one buys is a combination of the harness (running on your machine or browser) and Opus, a large language model (LLM) provided by Anthropic (running on their servers). What this guide shows is how to substitute the LLM for an open-weight LLM (from any provider), running on Biowulf GPUs (for free), served through a local back-end called Ollama. While these open-weight LLMs are not quite as smart as Opus, they are very good at programming, the key reason for using Claude Code, and across many other tasks.
+        
+
     
 ## preparation
 
