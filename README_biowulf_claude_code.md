@@ -4,9 +4,9 @@ For questions about this guide, please contact the NIMH Machine Learning Core (N
     
 ## what is this, and what is it for?
 
-Mainly, to allow you to use the Claude Code environment (an agentic coding harness) when you cannot buy a subscription for it from Anthropic, due to cost or purchasing constraints.
+Mainly, to allow you to use the Claude Code development environment when you cannot buy a subscription for it from Anthropic, due to cost or purchasing constraints.
 
-The Claude Code access one buys is a combination of the harness (running on your machine or browser) and Opus, a large language model (LLM) provided by Anthropic (running on their servers). What this guide shows is how to substitute the LLM for an open-weight LLM (from any provider), running on Biowulf GPUs (for free), served through a local back-end called Ollama. While these open-weight LLMs are not quite as smart as Opus, they are very good at programming, the key reason for using Claude Code, and across many other tasks.
+The Claude Code access one buys is a combination of a "harness" (code running on your machine or browser, which you interact with) and Opus, a large language model (LLM) provided by Anthropic (running on their servers, the harness talks to this LLM to provide tasks, or collect results). What this guide shows is how to substitute the LLM for an open-weight LLM (from any provider), running on Biowulf GPUs (for free), served through a local back-end called Ollama. While these open-weight LLMs are not quite as smart as Opus, they are very good at programming, the key reason for using Claude Code, and across many other tasks.
         
 
     
