@@ -39,7 +39,7 @@ which can be scheduled in an interactive session almost instantly.
 Models served in the Ollama back-end are usually named `<model>:<#parameters>-<features>`. In general, you should use the smallest GPU that the model will run in, with the following table showing which models will run in which GPUs available now (v100:16GB, v100x:32GB, A100:80GB).
 
 |model (parameters)|context length| v100 |v100x| l40 | a100 |
-|-----------------|-----|-----|-----|-----|
+|-----------------|-----|-----|-----|-----|-----|
 |qwen3.5:9b       | 256K |  x  |  x  |  x  |  x  |
 |qwen3-coder:30b  | 256K |     |  x  |  x  |  x  |
 |qwen3.8 (27b)    | 256K |     |  x  |  x  |  x  |
