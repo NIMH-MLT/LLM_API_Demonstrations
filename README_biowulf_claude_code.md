@@ -30,7 +30,7 @@ For this demo, we will use a L40 GPU (with 48GB of RAM in the card)
 
      sinteractive --mem=32g --gres=gpu:l40:1
 
-LLMs are sized in terms of billions of parameters, and this GPU handles (almost) every model we have in the Ollama back-end. We will discuss choice of model and GPU later in this document.
+This may take a bit of time to schedule, since this GPU model is in high demand. LLMs are sized in terms of billions of parameters, and this GPU handles (almost) every model we have in the Ollama back-end. We will discuss choice of model and GPU later in this document.
 
 
 ## set it up
@@ -75,9 +75,9 @@ again.
     
 ## run a model
 
-Try
+Try running a small model, which should load quickly
 
-    ollama run qwen3.5:9b
+    ollama run qwen3.5:9b 
 
 If successful, you will get a prompt you can interact with, e.g. type
 
@@ -90,7 +90,7 @@ This shows us that Ollama can run a model, and Claude Code can rely on it.
 
 ## run Claude Code
 
-Set a few more environment variables
+Set a few more environment variables, which point Claude Code to the Ollama back-end
     
     export ANTHROPIC_AUTH_TOKEN=ollama
     export ANTHROPIC_BASE_URL=$OLLAMA_HOST
@@ -108,9 +108,9 @@ At this point, you can provide it with instructions, e.g.
 
     write me a python function to compute the first k prime numbers
 
-and it will do so (possibly a bit slowly, with this GPU). At that point, you can ask it to change the function, write it to a file, or anything else you would do with a coding assistant. That's it, you're using Claude Code!
+and it will do. At that point, you can ask it to change the function, write it to a file, or anything else you would do with a coding assistant. That's it, you're using Claude Code!
 
-
+## improving performance
 
 
 
@@ -124,7 +124,7 @@ Which GPU to use depends on whether
     
 Models served in the Ollama back-end are usually named `<model>:<#parameters>-<features>`.
 
-## improving performance
+
 
      In general, you should use the smallest GPU that the model will run in, with the following table showing which models will run in which GPUs available now (v100:16GB, v100x:32GB, A100:80GB).
 
