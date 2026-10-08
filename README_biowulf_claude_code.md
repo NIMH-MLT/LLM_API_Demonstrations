@@ -26,11 +26,11 @@ If you are interested in having it work on code in github, you can also clone th
     
 ## start an interactive session with access to a GPU
 
-For this demo, we will use a large GPU (A100, 80GB of RAM)
+For this demo, we will use a L40 GPU (with 48GB of RAM in the card)
 
-     sinteractive --mem=32g --gres=gpu:a100:1
+     sinteractive --mem=32g --gres=gpu:l40:1
 
-Models are sized in terms of billions of parameters, and this should handle every model we have in the Ollama back-end. For smaller models (up to ~30B parameters), it's possible to use a medium GPU (v100x, 32GB of RAM)
+LLMs are sized in terms of billions of parameters, and this GPU size handle every model we have in the Ollama back-end. For smaller models (up to ~30B parameters), it's possible to use a smaller GPU (v100x, 32GB of RAM)
 
     sinteractive --mem=32g --gres=gpu:v100x:1
 
@@ -38,15 +38,15 @@ which can be scheduled in an interactive session almost instantly.
 
 Models served in the Ollama back-end are usually named `<model>:<#parameters>-<features>`. In general, you should use the smallest GPU that the model will run in, with the following table showing which models will run in which GPUs available now (v100:16GB, v100x:32GB, A100:80GB).
 
-|model (parameters)|context length| v100 |v100x|a100 |
+|model (parameters)|context length| v100 |v100x| l40 | a100 |
 |-----------------|-----|-----|-----|-----|
-|qwen3.5:9b       | 256K |  x  |  x  |  x  |
-|qwen3-coder:30b  | 256K |     |  x  |  x  |     
-|qwen3.8 (27b)    | 256K |     |  x  |  x  |
-|gemma4:12b-it-qat| 256K |  x  |  x  |  x  |
-|gemma4:26b-a4b-it-qat| 256K |     |  x  |  x  |
-|gpt-oss:20b      | 128K |     |  x  |  x  |
-|gpt-oss:120b     | 128K |     |     |  x  |
+|qwen3.5:9b       | 256K |  x  |  x  |  x  |  x  |
+|qwen3-coder:30b  | 256K |     |  x  |  x  |  x  |
+|qwen3.8 (27b)    | 256K |     |  x  |  x  |  x  |
+|gemma4:12b-it-qat| 256K |  x  |  x  |  x  |  x  |
+|gemma4:26b-a4b-it-qat| 256K |     |  x  |  x  |  x  |
+|gpt-oss:20b      | 128K |     |  x  |  x  |  x  |
+|gpt-oss:120b     | 128K |     |     |  x  |  x  |
 
 ## set it up
 
