@@ -137,7 +137,7 @@ This table shows how much memory each model has, and how fast they have
 |l40   | 48GB   | 3     |
 |h200  | 141GB  | 4     |
 
-The H200 is the most capable GPU, but also the least likely to be available for interactive use. In general, you should use the smallest GPU that the model will run in, and where the speed is acceptable, for ease of scheduling.
+The H200 is the most capable GPU, but also the least likely to be available for interactive use, and it would be wasteful to use it for a model that would fit in smaller GPUs. In general, you should use the smallest GPU that the model will run in, and where the speed is acceptable, for ease of scheduling.
 
 ## other resources
 
@@ -145,3 +145,6 @@ If you want to get a better handle on how to effectively use Claude Code, this b
 
     https://bettercodebetterscience.github.io/book/ai-coding-assistants/
 
+## Application Programming Interface (API) use
+
+It is possible to support your python programs interacting with the models running on the Ollama back-end, using an application programming interface (API). We are writing a guide about this, with samples, so if you would be interested in doing that please contact the NIMH Machine Learning Core (NIMHMLC@mail.nih.gov).
