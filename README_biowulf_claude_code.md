@@ -117,7 +117,6 @@ Models come in a variety of sizes, quantified by #parameters. In general, the mo
 The other consideration is which GPU to run on, which depends on the RAM capacity needed (the bigger the model, the more RAM is needed), and the speed. The short answer is: l40, which is a good trade-off and can fit almost any relevant models. To go further, this table shows which models fit on each Biowulf GPU type
 
 |GPU                  | v100 |v100x| l40 | a100|     |
-|---------------------|----- |-----|-----|-----|-----|
 |model (parameters)   |      |     |     |     |     |
 |---------------------|----- |-----|-----|-----|-----|
 |qwen3.5:9b           | 256K |  x  |  x  |  x  |  x  |
