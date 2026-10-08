@@ -116,16 +116,16 @@ Models come in a variety of sizes, quantified by #parameters. In general, the mo
 
 The other consideration is which GPU to run on, which depends on the RAM capacity needed (the bigger the model, the more RAM is needed), and the speed. The short answer is: l40, which is a good trade-off and can fit almost any relevant models. To go further, this table shows which models fit on each Biowulf GPU type:
 
-|GPU <BR> model (parameters)| context | v100 |v100x| l40 | a100|
-|---------------------|----- |-----|-----|-----|-----|
-|qwen3.5:9b           | 256K |  x  |  x  |  x  |  x  |
-|qwen3-coder:30b      | 256K |     |  x  |  x  |  x  |
-|qwen3.8 (27b)        | 256K |     |  x  |  x  |  x  |
-|gemma4:12b-it-qat    | 256K |  x  |  x  |  x  |  x  |
-|gemma4:26b-a4b-it-qat| 256K |     |  x  |  x  |  x  |
-|gpt-oss:20b          | 128K |     |  x  |  x  |  x  |
-|gpt-oss:120b         | 128K |     |     |  x  |  x  |
-|mistral-medium-3.5   | 256K |     |     |     |  x  |
+|GPU <BR> model (parameters)| context | v100 |v100x| l40 | a100| h200 |
+|---------------------|----- |-----|-----|-----|-----|-----|
+|qwen3.5:9b           | 256K |  x  |  x  |  x  |  x  |  x  |
+|qwen3-coder:30b      | 256K |     |  x  |  x  |  x  |  x  |
+|qwen3.8 (27b)        | 256K |     |  x  |  x  |  x  |  x  |
+|gemma4:12b-it-qat    | 256K |  x  |  x  |  x  |  x  |  x  |
+|gemma4:26b-a4b-it-qat| 256K |     |  x  |  x  |  x  |  x  |
+|gpt-oss:20b          | 128K |     |  x  |  x  |  x  |  x  |
+|gpt-oss:120b         | 128K |     |     |  x  |  x  |  x  |
+|mistral-medium-3.5   | 256K |     |     |     |     |  x  |
 
 This table shows how much memory each model has, and how fast they are (comparatively)
     
