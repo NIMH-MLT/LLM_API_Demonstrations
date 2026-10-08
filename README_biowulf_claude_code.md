@@ -137,7 +137,7 @@ This table shows how much memory each model has, and how fast they are (comparat
 |l40   | 48GB   | 3     |
 |h200  | 141GB  | 4     |
 
-The H200 is the most capable GPU, but also the least likely to be available for interactive use, and it would be wasteful to use it for a model that would fit in smaller GPUs. In general, you should use the smallest GPU that the model will run in, and where the speed is acceptable, for ease of scheduling.
+The h200 is the most capable GPU, but also the least likely to be available for interactive use, and it would be wasteful to use it for a model that would fit in smaller GPUs. In general, you should use the smallest GPU that the model will run in, and where the speed is acceptable, for ease of scheduling.
 
 ## other resources
 
