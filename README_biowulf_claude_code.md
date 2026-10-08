@@ -127,7 +127,7 @@ The other consideration is which GPU to run on, which depends on the RAM capacit
 |gpt-oss:120b         | 128K |     |     |  x  |  x  |
 |mistral-medium-3.5   | 256K |     |     |     |  x  |
 
-This table shows how much memory each model has, and how fast they have
+This table shows how much memory each model has, and how fast they are (comparatively)
     
 | GPU  | memory | speed |
 |------|--------|-------|
