@@ -26,11 +26,11 @@ If you are interested in having it work on code in github, you can also clone th
     
 ## start an interactive session with access to a GPU
 
-For this demo, we will use a L40 GPU (with 48GB of RAM in the card)
+For this demo, we will use a L40 GPU (with 48GB of RAM in the card, and the same in the CPU)
 
-     sinteractive --mem=32g --gres=gpu:l40:1
+     sinteractive --mem=48g --cpus-per-task=16 --gres=gpu:l40:1
 
-This may take a bit of time to schedule, since this GPU model is in high demand. LLMs are sized in terms of billions of parameters, and this GPU handles (almost) every model we have in the Ollama back-end. We will discuss choice of model and GPU later in this document.
+This may take a bit of time to schedule, since this GPU model is in high demand; if it takes too long, reduce to `--cpus-per-task=8`. LLMs are sized in terms of billions of parameters, and this GPU handles (almost) every model we have in the Ollama back-end. We will discuss choice of model and GPU later in this document.
 
 
 ## set it up
