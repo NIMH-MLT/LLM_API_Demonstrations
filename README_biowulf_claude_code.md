@@ -40,7 +40,7 @@ Run the following commands to set up CUDA (NVIDIA's software to access GPU cards
     module load CUDA/12.8.2
     module load ollama
     export OLLAMA_MODELS=/data/NIMH_ReadOnly/Ollama_models
-    export OLLAMA_CONTEXT_LENGTH=256000
+    export OLLAMA_CONTEXT_LENGTH=128000
     `ollama_start | grep export`
     
 Paste that into the command line (notice the backticks in the last line), and now check that it all works
