@@ -6,6 +6,7 @@ import requests
 #
 # The input is provided in a structured dictionary, *all* of which is ingested. It could be a single field named "input", if you prefer.
 #
+# The model encodes the version of jev.
 #
 
 response = requests.post(
@@ -55,11 +56,12 @@ response = requests.post(
 ## pull out the three different responses
 
 answers = response.json()["answers"]
+print(answers)
 
 # 1) "noul" query - yes or no, probability of yes
-
+question = "Is the customer reporting a software defect?"
 probability = (answers["is_bug"])["noul"]
-print("1) noul: probability for is this a bug: %1.2f" % probability)
+print("\n1) noul: probability for \"%s\": %1.2f" % (question,probability))
 
 # 2) "choice" query - probability over each of several options
 
@@ -70,23 +72,22 @@ confidence = (answers["team"])["confidence"]
 # what are the probabilities for each option
 probability_distribution = (answers["team"])["probabilities"]
 
-print("2) choice: the answer is %s with confidence %1.2f" % (choice,confidence))
+print("\n2) choice: the answer is %s with confidence %1.2f" % (choice,confidence))
 print("probability distribution (sorted high to low):")
 for option in sorted(probability_distribution, key=probability_distribution.get, reverse=True):
     probability = probability_distribution[option]
     print("- %1.2f\t%s" % (probability,option))
 
 
-# 3) score query - produce a score in an ordered scale of levels
-# (defaults to 0, 1, #options-1, minimum 2, maximum 10)
-# score is a probability weighted average
+# 3) score query - produce a score in an ordered scale of levels (min 2, max 10)
+# (each level is assigned value 0, 1, #options-1, the score is a probability weighted average of them)
 
 # what is the score
 score = (answers["urgency"])["score"]
 # how confident is the model [0,1]
 confidence = (answers["urgency"])["confidence"]
 
-print("3) score: the score is %1.2f with confidence %1.2f" % (score,confidence))
+print("\n3) score: the score is %1.2f with confidence %1.2f" % (score,confidence))
 
 # what are the probabilities for each option
 probability_distribution = (answers["urgency"])["probabilities"]
