@@ -70,6 +70,7 @@ response = requests.post(
 answers = response.json()["answers"]
 
 # 1) "noul" query - yes or no, probability of yes
+
 question = "Is the customer reporting a software defect?"
 probability = (answers["is_bug"])["noul"]
 print("\n1) noul: probability for \"%s\": %1.2f" % (question,probability))
