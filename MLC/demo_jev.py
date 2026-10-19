@@ -4,9 +4,21 @@ import requests
 #
 # This code applies the three types of supported questions to a single input.
 #
-# The input is provided in a structured dictionary, *all* of which is ingested. It could be a single field named "input", if you prefer.
+# - goes to openrouter.ai (the API provided by Typesafe is a bit different)
+# - verify=False (to get around the NIH cert issues on the NIH network or VPN, otherwise download cert)
 #
-# The model encodes the version of jev.
+# To run this, you need an openrouter API key stored in the environment variable OPENROUTER_API_KEY.
+#
+# details of the JSON input:
+#
+# - "model": the version of Jev being accessed is denoted through the model name
+# - "state": this contains the input as structured dictionary, *all* of which is ingested. It could be a single field named "input", if you prefer.
+# - "questions": the questions to be asked
+#   1) "noul" query - yes or no, probability of yes
+#   2) "choice" query - probability over each of several options
+#   3) score query - produce a score in an ordered scale of levels (min 2, max 10), described in text
+#     (each level is assigned value 0, 1, #options-1)
+#     (the score is a probability weighted average of the values)
 #
 
 response = requests.post(
@@ -56,7 +68,6 @@ response = requests.post(
 ## pull out the three different responses
 
 answers = response.json()["answers"]
-print(answers)
 
 # 1) "noul" query - yes or no, probability of yes
 question = "Is the customer reporting a software defect?"
