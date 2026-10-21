@@ -30,9 +30,9 @@ import sys
 
 ## arguments to switch between jev and other models
 
-#model = "typesafe/jev-1.13"
+model = "typesafe/jev-1.13"
 #model = "clef-flash"
-model = "clef"
+#model = "clef"
 
 # where to route the request depends on the model
 if model == "typesafe/jev-1.13":
