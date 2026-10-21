@@ -188,6 +188,14 @@ response = requests.post(
                     "false": "The image contains no pandas.",
                 },
             },
+            "contains_mountain": {
+                "type": "noul",
+                "instructions": "Does the image contain at least one mountain?",
+                "criteria": {
+                    "true": "There is at least one mountain in the image.",
+                    "false": "The image contains no mountains.",
+                },
+            },            
         },
     },
 )
@@ -206,5 +214,9 @@ print("\nnoul: probability for \"%s\": %1.2f" % (question,probability))
 
 question = "Does the image contain at least one panda?"
 probability = (answers["contains_panda"])["noul"]
+print("\nnoul: probability for \"%s\": %1.2f" % (question,probability))
+
+question = "Does the image contain at least one mountain?"
+probability = (answers["contains_mountain"])["noul"]
 print("\nnoul: probability for \"%s\": %1.2f" % (question,probability))
 
