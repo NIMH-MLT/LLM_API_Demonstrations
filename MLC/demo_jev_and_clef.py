@@ -8,14 +8,21 @@ import sys
 # It uses the requests library, which works for both OpenRouter and Ollama.
 #
 # To run this, you need an openrouter API key stored in the environment variable OPENROUTER_API_KEY.
+# (cost $0.042 per million input tokens, with output tokens provided at no charge)
 #
-# details of the JSON input:
+# details of the JSON input
+# (total budget for state + all questions is ~64K tokens, ~300K characters)
+# (total budget for state + longest question is ~32K tokens)
 #
 # - "model": the version of Jev being accessed is denoted through the model name
 # - "state": this contains the input as structured dictionary, *all* of which is ingested. It could be a single field named "input", if you prefer.
 # - "questions": the questions to be asked
+#
 #   1) "noul" query - yes or no, probability of yes
-#   2) "choice" query - probability over each of several options
+#
+#   2) "choice" query - returns probability over all the provided options
+#      (maximum of 255 options per query)
+#
 #   3) score query - produce a score in an ordered scale of levels (min 2, max 10), described in text
 #     (each level is assigned value 0, 1, #options-1)
 #     (the score is a probability weighted average of the values)
@@ -24,8 +31,8 @@ import sys
 ## arguments to switch between jev and other models
 
 #model = "typesafe/jev-1.13"
-model = "clef-flash"
-#model = "clef"
+#model = "clef-flash"
+model = "clef"
 
 # where to route the request depends on the model
 if model == "typesafe/jev-1.13":
