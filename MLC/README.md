@@ -1,6 +1,6 @@
 # LLM_API_Demonstrations
 
-This repository contains demonstration functions for carrying various tasks with LLMs using the API, against different backends (Ollama, with either native or OpenAI APIs, and Hugging Face)
+This repository contains demonstration functions for carrying various tasks with LLMs using the API, against different backends (Ollama and Hugging Face)
 
 ## Ollama
 
@@ -19,8 +19,13 @@ This is a demo for interaction with an LLM (single turn, or chat).
 
 ### demo_ollama_images.py
 
-This is a demo for passing images to a VLM, asking it to do tasks, and outputting structured JSON (for the triplet task).
+This is a demo for passing images to a VLM, asking it to do tasks, and
+outputting structured JSON (for the triplet task).
 
+### demo_jev_and_clef.py
+
+This is a demo for calling Jev (not Ollama) or Clef (through Ollama),
+see `README_jev_like.md` for more details
 
 ## Hugging Face
 
