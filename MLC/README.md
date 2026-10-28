@@ -2,7 +2,7 @@
 
 This repository contains demonstration functions for carrying various tasks with LLMs using the API, against different backends (Ollama, with either native or OpenAI APIs, and Hugging Face)
 
-## demo_ollama_backend.py
+## Ollama
 
 To use, first create a conda environment
 
@@ -12,12 +12,19 @@ and install the ollama API
 
 	pip install ollama
 
-and, optionally, the OpenAI API
-(f you want to use that component of the demo)
 
-	pip install openai
+### demo_ollama_chat.py
 
-## demo_huggingface_local_model.py
+This is a demo for interaction with an LLM (single turn, or chat). 
+
+### demo_ollama_images.py
+
+This is a demo for passing images to a VLM, asking it to do tasks, and outputting structured JSON (for the triplet task).
+
+
+## Hugging Face
+
+### demo_huggingface_local_model.py
 
 This demo loads a model from the local `../models/` folder (Qwen3.5-0.8B by default) and runs inference locally via the Hugging Face `transformers` library. The conversation pattern is identical to `demo_ollama_backend.py`; only the inference call changes.
 
